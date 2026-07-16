@@ -1,174 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Registration System</title>
-
-    <style>
-
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-            font-family:Arial, Helvetica, sans-serif;
-        }
-
-        body{
-            background:#f2f5f9;
-            padding:40px;
-        }
-
-        .container{
-            max-width:900px;
-            margin:auto;
-        }
-
-        h1{
-            text-align:center;
-            color:white;
-            background:#1565c0;
-            padding:20px;
-            border-radius:10px;
-            margin-bottom:30px;
-        }
-
-        .card{
-            background:white;
-            padding:25px;
-            border-radius:10px;
-            box-shadow:0px 0px 10px rgba(0,0,0,0.15);
-            margin-bottom:30px;
-        }
-
-        h2{
-            margin-bottom:20px;
-            color:#1565c0;
-        }
-
-        label{
-            font-weight:bold;
-        }
-
-        input{
-            width:100%;
-            padding:12px;
-            margin-top:8px;
-            margin-bottom:20px;
-            border:1px solid #ccc;
-            border-radius:5px;
-            font-size:16px;
-        }
-
-        input[type="submit"]{
-            background:#1565c0;
-            color:white;
-            border:none;
-            cursor:pointer;
-            font-size:18px;
-        }
-
-        input[type="submit"]:hover{
-            background:#0d47a1;
-        }
-
-        table{
-            width:100%;
-            border-collapse:collapse;
-        }
-
-        th{
-            background:#1565c0;
-            color:white;
-            padding:12px;
-        }
-
-        td{
-            padding:12px;
-            border-bottom:1px solid #ddd;
-            text-align:center;
-        }
-
-        tr:nth-child(even){
-            background:#f7f7f7;
-        }
-
-    </style>
-
+    <title>Student Registration</title>
 </head>
+
 <body>
 
-<div class="container">
-
-<h1>🎓 Student Registration System</h1>
-
-<div class="card">
-
-<h2>Register Student</h2>
+<h1>Student Registration</h1>
 
 <form action="/register" method="POST">
 
-<label>Name</label>
+    Name:<br>
+    <input type="text" name="name"><br><br>
 
-<input
-type="text"
-name="name"
-placeholder="Enter Student Name"
-required>
+    Email:<br>
+    <input type="email" name="email"><br><br>
 
-<label>Email</label>
+    Department:<br>
+    <input type="text" name="department"><br><br>
 
-<input
-type="email"
-name="email"
-placeholder="Enter Email"
-required>
-
-<label>Department</label>
-
-<input
-type="text"
-name="department"
-placeholder="Enter Department"
-required>
-
-<input type="submit" value="Register Student">
+    <input type="submit" value="Register">
 
 </form>
 
-</div>
-
-<div class="card">
+<hr>
 
 <h2>Registered Students</h2>
 
-<table>
-
-<tr>
-<th>Name</th>
-<th>Email</th>
-<th>Department</th>
-</tr>
-
 {% for student in students %}
 
-<tr>
+<p>
 
-<td>{{ student[0] }}</td>
+<b>Name:</b> {{ student[1] }}<br>
+<b>Email:</b> {{ student[2] }}<br>
+<b>Department:</b> {{ student[3] }}
 
-<td>{{ student[1] }}</td>
+<br><br>
 
-<td>{{ student[2] }}</td>
+<a href="/edit/{{ student[0] }}">Edit</a>
 
-</tr>
+|
+
+<a href="/delete/{{ student[0] }}">Delete</a>
+
+</p>
+
+<hr>
 
 {% endfor %}
 
-</table>
-
-</div>
-
-</div>
-
 </body>
+
 </html>
