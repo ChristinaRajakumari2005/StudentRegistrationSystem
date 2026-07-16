@@ -1,11 +1,42 @@
-{% for student in students %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Registration System</title>
+</head>
+<body>
 
-<p>
-Name: {{ student[0] }} <br>
-Email: {{ student[1] }} <br>
-Department: {{ student[2] }}
-</p>
+    <h1>Student Registration</h1>
 
-<hr>
+    <form action="/register" method="POST">
 
-{% endfor %}
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Department:</label><br>
+        <input type="text" name="department" required><br><br>
+
+        <input type="submit" value="Register">
+
+    </form>
+
+    <hr>
+
+    <h2>Registered Students</h2>
+
+    {% for student in students %}
+
+    <p>
+        <strong>Name:</strong> {{ student[0] }}<br>
+        <strong>Email:</strong> {{ student[1] }}<br>
+        <strong>Department:</strong> {{ student[2] }}
+    </p>
+
+    <hr>
+
+    {% endfor %}
+
+</body>
+</html>
