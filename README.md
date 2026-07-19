@@ -65,25 +65,24 @@ StudentRegistrationSystem/
 
 ### 🏠 Home Page
 
-> Add Screenshot Here
+![Home Page](screenshots/homepage.png)
+
 
 ---
 
 ### ➕ Register Student
-
-> Add Screenshot Here
-
+![Register Student](screenshots/register.png)
 ---
 
 ### ✏ Edit Student
 
-> Add Screenshot Here
+![Edit Student](screenshots/edit.png)
 
 ---
 
 ### ☁ Azure Deployment
 
-> Add Screenshot Here
+![Azure Deployment](screenshots/azure.png)
 
 ---
 
