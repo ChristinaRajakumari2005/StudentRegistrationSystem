@@ -1,54 +1,193 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <title>Student Registration</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Registration Management Portal</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<h1>Student Registration</h1>
+<div class="background"></div>
+
+<div class="container">
+
+<header>
+
+<h1>🎓 Student Registration Management Portal</h1>
+
+<p>
+Cloud-Based Student Information Management System
+</p>
+
+<div class="badges">
+
+<span>🐍 Flask</span>
+
+<span>☁ Azure</span>
+
+<span>🗄 SQLite</span>
+
+<span>🔄 GitHub Actions</span>
+
+</div>
+
+</header>
+
+<div class="dashboard">
+
+<div class="card">
+
+<h2>{{ students|length }}</h2>
+
+<p>Registered Students</p>
+
+</div>
+
+</div>
+
+<section class="form-section">
+
+<h2>Register Student</h2>
 
 <form action="/register" method="POST">
 
-    Name:<br>
-    <input type="text" name="name"><br><br>
+<label>Name</label>
 
-    Email:<br>
-    <input type="email" name="email"><br><br>
+<input
+type="text"
+name="name"
+placeholder="Enter Student Name"
+required>
 
-    Department:<br>
-    <input type="text" name="department"><br><br>
+<label>Email</label>
 
-    <input type="submit" value="Register">
+<input
+type="email"
+name="email"
+placeholder="Enter Email Address"
+required>
+
+<label>Department</label>
+
+<input
+type="text"
+name="department"
+placeholder="Enter Department"
+required>
+
+<button>
+
+Register Student
+
+</button>
 
 </form>
 
-<hr>
+</section>
+
+<section class="table-section">
 
 <h2>Registered Students</h2>
 
+<table>
+
+<thead>
+
+<tr>
+
+<th>Name</th>
+
+<th>Email</th>
+
+<th>Department</th>
+
+<th>Actions</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% if students %}
+
 {% for student in students %}
 
-<p>
+<tr>
 
-<b>Name:</b> {{ student[1] }}<br>
-<b>Email:</b> {{ student[2] }}<br>
-<b>Department:</b> {{ student[3] }}
+<td>{{ student[1] }}</td>
 
-<br><br>
+<td>{{ student[2] }}</td>
 
-<a href="/edit/{{ student[0] }}">Edit</a>
+<td>{{ student[3] }}</td>
 
-|
+<td>
 
-<a href="/delete/{{ student[0] }}">Delete</a>
+<a
+class="edit-btn"
+href="/edit/{{ student[0] }}">
 
-</p>
+✏ Edit
 
-<hr>
+</a>
+
+<a
+class="delete-btn"
+href="/delete/{{ student[0] }}"
+onclick="return confirm('Delete this student?')">
+
+🗑 Delete
+
+</a>
+
+</td>
+
+</tr>
 
 {% endfor %}
+
+{% else %}
+
+<tr>
+
+<td colspan="4">
+
+No students registered yet.
+
+</td>
+
+</tr>
+
+{% endif %}
+
+</tbody>
+
+</table>
+
+</section>
+
+<footer>
+
+Developed by <strong>Christina Rajakumari</strong>
+
+<br>
+
+Flask • SQLite • Microsoft Azure App Service
+
+</footer>
+
+</div>
 
 </body>
 

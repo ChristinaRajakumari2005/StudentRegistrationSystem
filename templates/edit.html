@@ -1,32 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Edit Student</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
 
-<h1>Edit Student</h1>
+<div class="background"></div>
+
+<div class="container">
+
+<header>
+
+<h1>✏ Edit Student</h1>
+
+<p>Update student information below.</p>
+
+</header>
+
+<section class="form-section">
 
 <form action="/update/{{ student[0] }}" method="POST">
 
-Name:<br>
-<input type="text" name="name" value="{{ student[1] }}"><br><br>
+<label>Name</label>
 
-Email:<br>
-<input type="email" name="email" value="{{ student[2] }}"><br><br>
+<input
+type="text"
+name="name"
+value="{{ student[1] }}"
+required>
 
-Department:<br>
-<input type="text" name="department" value="{{ student[3] }}"><br><br>
+<label>Email</label>
 
-<input type="submit" value="Update">
+<input
+type="email"
+name="email"
+value="{{ student[2] }}"
+required>
+
+<label>Department</label>
+
+<input
+type="text"
+name="department"
+value="{{ student[3] }}"
+required>
+
+<button type="submit">
+
+💾 Update Student
+
+</button>
 
 </form>
 
 <br>
 
-<a href="/">Back</a>
+<a href="/" class="edit-btn">
+
+⬅ Back to Home
+
+</a>
+
+</section>
+
+<footer>
+
+© 2026 Christina Rajakumari
+
+<br>
+
+Flask • SQLite • Microsoft Azure App Service
+
+</footer>
+
+</div>
 
 </body>
 
